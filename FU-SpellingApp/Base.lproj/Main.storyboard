@@ -16,33 +16,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-na-WaW">
-                                <rect key="frame" x="0.0" y="357" width="393" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-na-WaW">
+                                <rect key="frame" x="1" y="357" width="391" height="216"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRa-1S-47U">
-                                <rect key="frame" x="138" y="646" width="117" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRa-1S-47U">
+                                <rect key="frame" x="138" y="633" width="117" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Score board"/>
                                 <connections>
                                     <segue destination="Z3V-y9-wq2" kind="show" identifier="toScoreBoardSegue" id="2jk-1H-KUQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSl-hg-K9Y">
-                                <rect key="frame" x="159" y="195" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSl-hg-K9Y">
+                                <rect key="frame" x="159" y="203" width="75" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
                                     <segue destination="nsY-i2-rg2" kind="show" identifier="toGameSegue" id="9TY-vu-idk"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XHU-rK-df7">
+                                <rect key="frame" x="70" y="278" width="253" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.77024744848825599" green="0.8896485913863641" blue="0.92141920266692168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LRa-1S-47U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="3DK-MV-x9s"/>
+                            <constraint firstItem="0fI-na-WaW" firstAttribute="top" secondItem="XHU-rK-df7" secondAttribute="bottom" constant="45" id="5if-yH-r6F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LRa-1S-47U" secondAttribute="trailing" constant="138" id="8TE-OZ-eCu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0fI-na-WaW" secondAttribute="trailing" constant="1" id="9JP-BR-3v1"/>
+                            <constraint firstItem="cSl-hg-K9Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="159" id="CSG-du-VCJ"/>
+                            <constraint firstItem="0fI-na-WaW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="Hh0-bm-qlE"/>
+                            <constraint firstItem="LRa-1S-47U" firstAttribute="top" secondItem="0fI-na-WaW" secondAttribute="bottom" constant="60" id="N2b-cj-dPt"/>
+                            <constraint firstItem="XHU-rK-df7" firstAttribute="top" secondItem="cSl-hg-K9Y" secondAttribute="bottom" constant="40" id="dbN-nx-xmZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XHU-rK-df7" secondAttribute="trailing" constant="70" id="gJm-Xb-Jt1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cSl-hg-K9Y" secondAttribute="trailing" constant="159" id="iej-Mt-bzp"/>
+                            <constraint firstItem="cSl-hg-K9Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="mgx-2i-hjh"/>
+                            <constraint firstItem="XHU-rK-df7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="vqD-NE-F23"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8ug-EN-b6C"/>
+                    <connections>
+                        <outlet property="nameField" destination="XHU-rK-df7" id="ZMz-7r-eBZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +91,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9w-Uz-ygL">
+                                <rect key="frame" x="141" y="164" width="120" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0RV-Hc-puI"/>
                         <color key="backgroundColor" red="1" green="0.77698313095414184" blue="0.67604199138817034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,6 +113,7 @@
                     <navigationItem key="navigationItem" id="p2K-8d-ggX"/>
                     <connections>
                         <outlet property="textField" destination="jNf-YW-A5a" id="Sy9-Sc-T9I"/>
+                        <outlet property="timerLabel" destination="b9w-Uz-ygL" id="5Mu-fZ-EGH"/>
                         <outlet property="wordLabel" destination="bTK-S7-13l" id="VpQ-iP-w1v"/>
                     </connections>
                 </viewController>

@@ -8,8 +8,8 @@
 import Foundation
 
 class Player{
-    var points : Int
-    var name : String
+    var points : Int = 0
+    var name : String = "user"
     
     init(points: Int, name: String) {
         self.points = points
