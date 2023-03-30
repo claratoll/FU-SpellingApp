@@ -21,20 +21,15 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     var randomWord: String = ""
     
     var timer : Timer?
-    var timeRemaining = 30
+    var timeRemaining = 5
     
     let gradientLayer = CAGradientLayer()
     let greenColor = UIColor.green.cgColor
     let redColor = UIColor.red.cgColor
     
-    var players = Players()
-    
     var recievingName : String = ""
     var playerPoints : Int = 0
     
-    //a timer for how long time the user got before the game is finished
-    //points for when the user writes correct answer
-    //color changes on the background if the user writes wrong letter
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,8 +87,6 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             timer?.invalidate()
             view.layer.removeAllAnimations()
             
-            players.add(player: Player(points: playerPoints, name: recievingName))
-            print(players.count + 1)
             
             performSegue(withIdentifier: toGameOverSegue, sender: self)
         }
