@@ -13,6 +13,7 @@ class Players {
     init() {
         add(player: Player(points: 8, name: "Aleandro"))
         add(player: Player(points: 10, name: "Elsie"))
+        add(player: Player(points: 7, name: "Jossan"))
     }
     
     func add(player: Player){
@@ -21,5 +22,15 @@ class Players {
     
     var count : Int{
         return players.count
+    }
+    
+    func showPlayers(index: Int) -> Player? {
+
+        let sortedPlayers = players.sorted { $0.points > $1.points }
+        
+        if index >= 0 && index < sortedPlayers.count{
+            return sortedPlayers[index]
+        }
+        return nil
     }
 }
