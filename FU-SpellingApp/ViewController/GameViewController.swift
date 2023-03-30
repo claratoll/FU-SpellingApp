@@ -13,6 +13,9 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
+    
+    let toGameOverSegue = "toGameOverSegue"
+    
     var deck = Deck()
     
     var randomWord: String = ""
@@ -20,7 +23,10 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     var timer : Timer?
     var timeRemaining = 30
     
-  //  var player : Player?
+    let gradientLayer = CAGradientLayer()
+    let greenColor = UIColor.green.cgColor
+    let redColor = UIColor.red.cgColor
+    
     var players = Players()
     
     var recievingName : String = ""
@@ -35,10 +41,17 @@ class GameViewController: UIViewController, UITextFieldDelegate {
 
         textField.delegate = self
         
+        //start game
         randomWord = deck.randomWord()
-
         wordLabel.text = randomWord
         
+        // Set up the gradient layer
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [greenColor, redColor]
+        gradientLayer.locations = [0.0, 1.0]
+        view.layer.insertSublayer(gradientLayer, at: 0)
+                
+        //start the countdown timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -66,15 +79,23 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @objc func updateTimer(){
         timeRemaining -= 1
         
+        // Calculate the percentage of the countdown completed
+        let percentageCompleted = CGFloat(timeRemaining) / 30.0
+                
+        // Update the gradient layer's locations to change the color over time
+        gradientLayer.locations = [0.0, NSNumber(value: Float(percentageCompleted))]
+                
         //update countdown label
         timerLabel.text = "\(timeRemaining) + \(playerPoints)"
         if timeRemaining == 0 {
             //stop timer
             timer?.invalidate()
-            //timer = nil
+            view.layer.removeAllAnimations()
             
             players.add(player: Player(points: playerPoints, name: recievingName))
             print(players.count + 1)
+            
+            performSegue(withIdentifier: toGameOverSegue, sender: self)
         }
     }
     
@@ -84,9 +105,16 @@ class GameViewController: UIViewController, UITextFieldDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
+            
+            if segue.identifier == toGameOverSegue {
+                if let destinationViewController = segue.destination as? GameOverViewController{
+                    timer?.invalidate()
+                    destinationViewController.name = recievingName
+                    destinationViewController.points = playerPoints
+                }
+            }
+            
+        }
     
 
 }
