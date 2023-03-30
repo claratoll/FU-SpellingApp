@@ -11,13 +11,16 @@ class Deck {
     private var deck = [Word]()
     
     init() {
-        add(newWord: Word(word: "lasagne", category: "Hard"))
-        add(newWord: Word(word: "pasta", category: "Medium"))
-        add(newWord: Word(word: "cat", category: "Easy"))
-        add(newWord: Word(word: "hat", category: "Easy"))
-        add(newWord: Word(word: "horse", category: "Medium"))
-        add(newWord: Word(word: "computer", category: "Hard"))
-        add(newWord: Word(word: "hard ware", category: "Extreme"))
+        add(newWord: Word(word: "lasagne"))
+        add(newWord: Word(word: "pasta"))
+        add(newWord: Word(word: "cat"))
+        add(newWord: Word(word: "hat"))
+        add(newWord: Word(word: "horse"))
+        add(newWord: Word(word: "computer"))
+        add(newWord: Word(word: "hard ware"))
+        add(newWord: Word(word: "socks"))
+        add(newWord: Word(word: "book"))
+        add(newWord: Word(word: "couch"))
     }
     
     func add(newWord : Word){
